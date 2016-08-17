@@ -15,6 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+        let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
+        statusItem.title = ""
+        
+        
+//        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+//        self.statusItem.title = @"dwarf clip";
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
