@@ -28,7 +28,7 @@ class ViewController: NSViewController {
         do {
             let dic = try NSJSONSerialization.JSONObjectWithData(json.dataUsingEncoding(NSUTF8StringEncoding)!, options: .AllowFragments)
             let dict = dic as! [String:AnyObject]
-            swiftCode.stringValue = "@interface \(Model.stringValue) : JSONModel{\n"
+            swiftCode.stringValue = "@interface \(Model.stringValue) : JSONModel\n\n"
             for (key,value) in dict {
                 switch value {
                 case is NSNumber,is NSInteger:
@@ -41,7 +41,7 @@ class ViewController: NSViewController {
                     swiftCode.stringValue += "@property (strong, nonatomic) \(value.classForCoder)* \(key);\n"
                 }
             }
-            swiftCode.stringValue += "@end\n"
+            swiftCode.stringValue += "\n@end\n"
             
             swiftCode.stringValue += "@implementation \(Model.stringValue) \n@end"
         }
